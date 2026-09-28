@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+
+typedef struct{
+    char nazov[50];
+    int pocet;
+} Product;
+
+
+
+int main(void) {
+    Product produkty[10];
+
+    float ceny[10];
+    char nazvy[10][50];
+    int pocty[10];
+    int pocet_produktov;
+
+    printf("Kolko produktov chces zadat (max 10)? ");
+    scanf("%d", &pocet_produktov);
+
+
+    for (int i = 0; i < pocet_produktov; i++)
+    {   
+        
+        printf ("Product %d");
+        printf("Zadaj nazov produktu : ");
+        scanf("%s", nazvy[i]); 
+
+        printf("Zadaj cenu: ");
+        scanf("%f", &ceny[i]); 
+
+        printf("Zadaj pocet: ");
+        scanf("%d", &pocty[i]); 
+
+    }
+    
+    
+    float celkova_cena = (cena1 * pocet1) + (cena2 * pocet2) + (cena3 * pocet3);
+
+    printf("\n--- VAS NAKUP ---\n");
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%s: %d ks x %.2f EUR = %.2f EUR\n", nazvy, pocty, ceny, int pocty[10] * int ceny[10]);
+    }
+    
+    printf("%s: %d ks x %.2f EUR = %.2f EUR\n", nazov1, pocet1, cena1, pocet1 * cena1);
+    
+
+    printf("------------\n");
+    printf("Celkova suma: %.2f EUR\n", celkova_cena);
+
+    if (celkova_cena > 50.0) {
+        float cena_po_zlave = celkova_cena * 0.90;
+        printf("Aplikovana 10%% zlava! Cena po zlave: %.2f EUR\n", cena_po_zlave);
+    }
+    
+    return 0;
+}
