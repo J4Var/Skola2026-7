@@ -1,56 +1,50 @@
 #include <stdio.h>
 
-int main() {
-    char nazov1[50];
-    float cena1;
-    int pocet1;
 
-    char nazov2[50];
-    float cena2;
-    int pocet2;
+typedef struct{
+    char nazov[50];
+    int pocet;
+} Product;
+
+
+
+int main(void) {
+    Product produkty[10];
+
+    float ceny[10];
+    char nazvy[10][50];
+    int pocty[10];
+    int pocet_produktov;
+
+    printf("Kolko produktov chces zadat (max 10)? ");
+    scanf("%d", &pocet_produktov);
+
+
+    for (int i = 0; i < pocet_produktov; i++)
+    {   
+        
+        printf ("Product %d\n", i + 1);
+        printf("Zadaj nazov produktu : ");
+        scanf("%s", nazvy[i]); 
+
+        printf("Zadaj cenu: ");
+        scanf("%f", &ceny[i]); 
+
+        printf("Zadaj pocet: ");
+        scanf("%d", &pocty[i]); 
+
+    }
     
-    char nazov3[50];
-    float cena3;
-    int pocet3;
-
-    // produkt 1
-    printf("Zadaj nazov produktu 1: ");
-    scanf("%s", nazov1); 
-
-    printf("Zadaj cenu: ");
-    scanf("%f", &cena1); 
-
-    printf("Zadaj pocet: ");
-    scanf("%d", &pocet1); 
-
-
-    //produkt 2
-    printf("Zadaj nazov produktu 2: ");
-    scanf("%s", nazov2); 
-
-    printf("Zadaj cenu: ");
-    scanf("%f", &cena2); 
-
-    printf("Zadaj pocet: ");
-    scanf("%d", &pocet2); 
-
-
-    //produkt 3
-    printf("Zadaj nazov produktu 3: ");
-    scanf("%s", nazov3); 
-
-    printf("Zadaj cenu: ");
-    scanf("%f", &cena3); 
-
-    printf("Zadaj pocet: ");
-    scanf("%d", &pocet3); 
-
-    float celkova_cena = (cena1 * pocet1) + (cena2 * pocet2) + (cena3 * pocet3);
+    
+    float celkova_cena = 0;
+    for (int i = 0; i < pocet_produktov; i++) {
+        celkova_cena += pocty[i] * ceny[i];
+    }
 
     printf("\n--- VAS NAKUP ---\n");
-    printf("%s: %d ks x %.2f EUR = %.2f EUR\n", nazov1, pocet1, cena1, pocet1 * cena1);
-    printf("%s: %d ks x %.2f EUR = %.2f EUR\n", nazov2, pocet2, cena2, pocet2 * cena2);
-    printf("%s: %d ks x %.2f EUR = %.2f EUR\n", nazov3, pocet3, cena3, pocet3 * cena3);
+    for (int i = 0; i < pocet_produktov; i++) {
+        printf("%s: %d ks x %.2f EUR = %.2f EUR\n", nazvy[i], pocty[i], ceny[i], pocty[i] * ceny[i]);
+    }
 
     printf("------------\n");
     printf("Celkova suma: %.2f EUR\n", celkova_cena);
