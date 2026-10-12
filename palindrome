@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char slovo[10];
+    printf("Zadajte slovo: ");
+    scanf("%s", slovo);
+    char obratene_slovo[10];
+
+    size_t dlzka = strlen(slovo);
+    
+    for (size_t i = 0; i < dlzka; i++) {
+    obratene_slovo[i] = slovo[dlzka - 1 - i];
+    }
+
+    obratene_slovo[dlzka] = '\0';
+
+    printf("Obratene slovo: %s\n", obratene_slovo);
+
+    if (strcmp(slovo, obratene_slovo) == 0) {
+        printf("Slovo je palindrom.\n");
+    } else {
+        printf("Slovo nie je palindrom.\n");
+    }
+}
