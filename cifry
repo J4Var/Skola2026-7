@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+
+int main() {
+
+    int cislo;
+
+    printf("Zadaj cislo na scitanie cislic: ");
+    scanf("%d", &cislo);
+    
+    int dlzka = 1;
+    int cifroveCislo = cislo;
+
+    for (int i = 1; cifroveCislo != 0; i++) {
+
+        cifroveCislo = cifroveCislo/10;
+        dlzka = i;
+    };
+
+    printf("tvoje cislo ma %d cislic \n", dlzka );
+
+    
+    int sucet_cifier = 0;
+
+    for (int j = dlzka; j > 0; j--) {
+        
+        int cifra = cislo % 10;
+        sucet_cifier = sucet_cifier + cifra;
+        cislo = cislo / 10;
+    }
+
+    printf("sucet cifier je %d", sucet_cifier);
+
+
+}
